@@ -1,0 +1,17 @@
+{
+  "name": "spring-rest",
+  "description": "Sprint.io REST API Implementation",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "Partha R <parthasarathi.ramanujam@gmail.com>",
+  "keywords": [
+    "spring",
+    "mvc",
+    "rest"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/partharamanujam/spring-rest"
+  },
+  "readmeFilename": "README.md"
+}
