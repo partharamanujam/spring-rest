@@ -13,9 +13,10 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
+apply plugin: 'war'
 
-jar {
-    baseName = 'rest-service'
+war {
+    baseName = 'rest'
     version =  '0.1.0'
 }
 
@@ -26,8 +27,8 @@ repositories {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web")
-    testCompile("junit:junit")
+    compile("org.springframework.boot:spring-boot-starter-web:1.1.3.RELEASE")
+    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat:1.1.3.RELEASE")
 }
 
 task wrapper(type: Wrapper) {
