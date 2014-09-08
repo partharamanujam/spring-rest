@@ -45,12 +45,15 @@ $ ./gradlew run
   The build-tool gradle is invoked using gradlew which is a shell-script in unix-like
   environments, and a batch-file on MS-Windows. It supports multiple tasks, and some
   of the useful ones are:
-  * clean
-  * jar
-  * war
-  * build # all targets
-  * run
-  * eclipse # IDE setup for STS/Eclipse
+
+```bash
+$ ./gradlew clean
+$ ./gradlew jar
+$ ./gradlew war
+$ ./gradlew build # all targets
+$ ./gradlew run
+$ ./gradlew eclipse # IDE setup for STS/Eclipse
+```
 
 ### STS (Eclipse IDE)
 
@@ -60,10 +63,9 @@ $ ./gradlew run
   * "Import" in Eclipse/STS "Existing Projects into Workspace"
   * "Browse" for project-folder, and select as "root" directory
   * "Select" listed project, and press "Finish" button
-  * Right-click on project, and select: "Configure -> Convert to Gradle Project"
   * Build & Run project within STS/Eclipse
 
-### Command-line Builds
+### Command-line
 ```bash
 $ cd spring-rest/starter-project
 $ ./gradlew run
@@ -71,7 +73,7 @@ $ ./gradlew run
 
 ### Log4J Configuration
 
-  See properties setup in /spring-rest/starter-project/src/main/javalog4j.properties file.
+  See properties setup in /spring-rest/starter-project/src/main/resources/javalog4j.properties file.
   You can also set logger-level per package and/or class in the properties file.
 
 ## License
