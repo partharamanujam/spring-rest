@@ -80,7 +80,7 @@ $ ./gradlew run
 
 ### Log4J Configuration
 
-  See properties setup in /spring-rest/starter-project/src/main/resources/javalog4j.properties file.
+  See properties setup in /spring-rest/starter-project/src/main/resources/java/log4j.properties file.
   You can also set logger-level per package and/or class in the properties file.
 
 ### Content Negotiation
@@ -90,6 +90,10 @@ $ ./gradlew run
   * format URL parameter, e.g., http://localhost:8080/greeting.xml?name=partha&format=xml
   * accept headers, e.g., application/json
   * defaults to JSON
+
+### HTTP Request Logging
+
+  All HTTP requests are logged using Log4j logger. You can enable/disable this via the log4j.properties file.
 
 ## License
 
