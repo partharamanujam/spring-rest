@@ -5,9 +5,9 @@
 ### Setup
 
 ```bash
-\# code
+# code
 $ git clone https://github.com/partharamanujam/spring-rest.git
-\# build + run
+# build + run
 $ cd spring-rest/starter-project
 $ ./gradlew run
 ```
@@ -27,7 +27,7 @@ $ ./gradlew run
 
 ### Dependency Module Versions
 
-  View build.gradle file for versions of dependencies. 
+  View [build.gradle](starter-project/build.gradle) file for versions of dependencies. 
 
 ## Philosophy
 
@@ -61,20 +61,33 @@ $ ./gradlew eclipse # IDE setup for STS/Eclipse
   to download Spring Tool Suite (tested on STS-3.5.1.RELEASE). After setting up STS:
   * run "./gradlew eclipse" from within project-folder
   * "Import" in Eclipse/STS "Existing Projects into Workspace"
-  * "Browse" for project-folder, and select as "root" directory
+  * "Browse" for project-folder, and select "root" directory
   * "Select" listed project, and press "Finish" button
   * Build & Run project within STS/Eclipse
 
 ### Command-line
+
 ```bash
 $ cd spring-rest/starter-project
 $ ./gradlew run
 ```
 
+### WAR file
+
+  On successful build, the war-file for deployment in Tomcat is available in "build/libs" directory.
+
 ### Log4J Configuration
 
   See properties setup in /spring-rest/starter-project/src/main/resources/javalog4j.properties file.
   You can also set logger-level per package and/or class in the properties file.
+
+### Content Negotiation
+
+  Support is available for JSON & XML contents. These are checked in the following order:
+  * path extension suffix to URL, e.g., http://localhost:8080/greeting.xml?name=partha
+  * format URL parameter, e.g., http://localhost:8080/greeting.xml?name=partha&format=xml
+  * accept headers, e.g., application/json
+  * defaults to JSON
 
 ## License
 
