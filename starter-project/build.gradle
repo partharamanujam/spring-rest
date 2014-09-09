@@ -31,6 +31,8 @@ dependencies {
         exclude module: 'org.springframework.boot:spring-boot-starter-logging'
     }
     compile ('log4j:log4j:1.2.17')
+    compile("org.springframework.security:spring-security-web:3.2.4.RELEASE")
+    compile("org.springframework.security:spring-security-config:3.2.4.RELEASE")
 }
 
 task wrapper(type: Wrapper) {

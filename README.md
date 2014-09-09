@@ -20,6 +20,8 @@ $ ./gradlew run
   * WAR builds for deployment using [Tomcat](http://tomcat.apache.org/)
   * Supports cmd-line builds, and multiple IDEs (STS/Eclipse, IDEA, etc.)
   * Supports content-negotiation for both JSON & XML
+  * Supports [Spring Security](http://docs.spring.io/autorepo/docs/spring-security/3.2.4.RELEASE/reference/htmlsingle)
+  * Supports AJAX via HTTP headers for [CSRF tokens](http://docs.spring.io/autorepo/docs/spring-security/3.2.4.RELEASE/reference/htmlsingle/#csrf-using)
 
 ### Installation Dependencies
 
