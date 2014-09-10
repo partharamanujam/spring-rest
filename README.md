@@ -14,10 +14,13 @@ $ ./gradlew run
 
 ## Features
 
-  * Framework [Spring.io](https://spring.io/)
-  * Build using [Gradle](http://www.gradle.org/)
-  * Logging using [Log4J](http://logging.apache.org/log4j/)
-  * WAR builds for deployment using [Tomcat](http://tomcat.apache.org/)
+  * [Spring Framework](https://spring.io/)
+  * [Log4J Logging](http://logging.apache.org/log4j/)
+  * [Gradle Builds](http://www.gradle.org/)
+  * [Hibernate ORM](https://docs.jboss.org/hibernate/orm/3.6/reference/en-US/html/)
+  * [C3P0 Connection-pooling](http://www.mchange.com/projects/c3p0/)
+  * [MySQL DB](http://www.mysql.com/)
+  * Supports war-file for [Tomcat Deployment](http://tomcat.apache.org/)
   * Supports cmd-line builds, and multiple IDEs (STS/Eclipse, IDEA, etc.)
   * Supports content-negotiation for both JSON & XML
   * Supports [Spring Security](http://docs.spring.io/autorepo/docs/spring-security/3.2.4.RELEASE/reference/htmlsingle)
@@ -25,11 +28,20 @@ $ ./gradlew run
 
 ### Installation Dependencies
 
-  * STS-3.5.1.RELEASE (Spring Tool Suite Eclipse IDE)
+  * MYSQL Ver 14.14 Distrib 5.6.17
+  * Tomcat 7.0.52.0 (Optional)
+  * Eclipse STS-3.5.1.RELEASE (Optional)
 
 ### Dependency Module Versions
 
   View [build.gradle](starter-project/build.gradle) file for versions of dependencies. 
+
+### Setup
+
+  After installing the dependencies, create the following in MYSQL:
+  * Create User: "testuser" with Password: "testpwd"
+  * Create DB: TestDB
+  * Grant permissions
 
 ## Philosophy
 
