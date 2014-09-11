@@ -6,10 +6,10 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-public class HibernateEntity<T> {
+public class HibernatePojoEntity<T> {
 	private Class<T> type;
 
-	public HibernateEntity(Class<T> type) {
+	public HibernatePojoEntity(Class<T> type) {
 		this.type = type;
 	}
 

@@ -19,11 +19,11 @@ public class User {
 	private String pass;
 
 	@XmlElement
-	public String getId() {
+	public String getUid() {
 		return uid;
 	}
 
-	public void setId(String uid) {
+	public void setUid(String uid) {
 		this.uid = uid;
 	}
 

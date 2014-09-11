@@ -16,8 +16,8 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-	@RequestMapping(value = "{id}", method = RequestMethod.GET)
-	public @ResponseBody User getUser(@PathVariable String id) {
-		return userService.readUser(id);
+	@RequestMapping(value = "{uid}", method = RequestMethod.GET)
+	public @ResponseBody User getUser(@PathVariable String uid) {
+		return userService.readUser(uid);
 	}
 }

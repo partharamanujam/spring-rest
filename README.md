@@ -20,11 +20,11 @@ $ ./gradlew run
   * [Hibernate ORM](https://docs.jboss.org/hibernate/orm/3.6/reference/en-US/html/)
   * [C3P0 Connection-pooling](http://www.mchange.com/projects/c3p0/)
   * [MySQL DB](http://www.mysql.com/)
-  * Supports war-file for [Tomcat Deployment](http://tomcat.apache.org/)
+  * [Spring Security](http://docs.spring.io/autorepo/docs/spring-security/3.2.4.RELEASE/reference/htmlsingle)
+  * [CSRF Headers](http://docs.spring.io/autorepo/docs/spring-security/3.2.4.RELEASE/reference/htmlsingle/#csrf-using) for AJAX
+  * [Tomcat Deployment](http://tomcat.apache.org/) via war-file
   * Supports cmd-line builds, and multiple IDEs (STS/Eclipse, IDEA, etc.)
   * Supports content-negotiation for both JSON & XML
-  * Supports [Spring Security](http://docs.spring.io/autorepo/docs/spring-security/3.2.4.RELEASE/reference/htmlsingle)
-  * Supports AJAX via HTTP headers for [CSRF tokens](http://docs.spring.io/autorepo/docs/spring-security/3.2.4.RELEASE/reference/htmlsingle/#csrf-using)
 
 ### Installation Dependencies
 
@@ -32,16 +32,16 @@ $ ./gradlew run
   * Tomcat 7.0.52.0 (Optional)
   * Eclipse STS-3.5.1.RELEASE (Optional)
 
-### Dependency Module Versions
-
-  View [build.gradle](starter-project/build.gradle) file for versions of dependencies. 
-
-### Setup
+### MYSQL Setup
 
   After installing the dependencies, create the following in MYSQL:
   * Create User: "testuser" with Password: "testpwd"
   * Create DB: TestDB
-  * Grant permissions
+  * Grant necessary permissions
+
+### Dependency Module Versions
+
+  View [build.gradle](starter-project/build.gradle) file for versions of dependencies. 
 
 ## Philosophy
 

@@ -36,7 +36,7 @@ dependencies {
     compile("mysql:mysql-connector-java:5.1.15")
     compile("org.hibernate:hibernate-core:3.6.3.Final")
     compile("org.hibernate:hibernate-c3p0:3.6.3.Final")
-	compile("javassist:javassist:3.12.1.GA")
+    compile("javassist:javassist:3.12.1.GA")
 }
 
 task wrapper(type: Wrapper) {

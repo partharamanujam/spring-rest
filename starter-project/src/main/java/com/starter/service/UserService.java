@@ -3,11 +3,11 @@ package com.starter.service;
 import org.springframework.stereotype.Service;
 
 import com.starter.model.User;
-import com.starter.utils.HibernateEntity;
+import com.starter.utils.HibernatePojoEntity;
 
 @Service
 public class UserService {
-	HibernateEntity<User> entity = new HibernateEntity<User>(User.class);
+	HibernatePojoEntity<User> entity = new HibernatePojoEntity<User>(User.class);
 
 	public User createUser(User user) {
 		user = entity.create(user);
