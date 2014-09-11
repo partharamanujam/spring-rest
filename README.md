@@ -2,7 +2,7 @@
 
   Spring.io based REST services
 
-### Setup
+#### Setup
 
 ```bash
 # code
@@ -26,20 +26,20 @@ $ ./gradlew run
   * Supports cmd-line builds, and multiple IDEs (STS/Eclipse, IDEA, etc.)
   * Supports content-negotiation for both JSON & XML
 
-### Installation Dependencies
+#### Installation Dependencies
 
   * MYSQL Ver 14.14 Distrib 5.6.17
   * Tomcat 7.0.52.0 (Optional)
   * Eclipse STS-3.5.1.RELEASE (Optional)
 
-### MYSQL Setup
+#### MYSQL Setup
 
   After installing the dependencies, create the following in MYSQL:
   * Create User: "testuser" with Password: "testpwd"
   * Create DB: TestDB
   * Grant necessary permissions
 
-### Dependency Module Versions
+#### Dependency Module Versions
 
   View [build.gradle](starter-project/build.gradle) file for versions of dependencies. 
 
@@ -54,7 +54,7 @@ $ ./gradlew run
   There are many aspects that can be configured or used differently depending on the needs.
   This section lists some of these important aspects.
 
-### Gradle tasks
+#### Gradle tasks
 
   The build-tool gradle is invoked using gradlew which is a shell-script in unix-like
   environments, and a batch-file on MS-Windows. It supports multiple tasks, and some
@@ -69,7 +69,7 @@ $ ./gradlew run
 $ ./gradlew eclipse # IDE setup for STS/Eclipse
 ```
 
-### STS (Eclipse IDE)
+#### STS (Eclipse IDE)
 
   If you want to edit & debug the project within the comforts of Eclipse IDE, you will need
   to download Spring Tool Suite (tested on STS-3.5.1.RELEASE). After setting up STS:
@@ -79,23 +79,23 @@ $ ./gradlew eclipse # IDE setup for STS/Eclipse
   * "Select" listed project, and press "Finish" button
   * Build & Run project within STS/Eclipse
 
-### Command-line
+#### Command-line
 
 ```bash
 $ cd spring-rest/starter-project
 $ ./gradlew run
 ```
 
-### WAR file
+#### WAR file
 
   On successful build, the war-file for deployment in Tomcat is available in "build/libs" directory.
 
-### Log4J Configuration
+#### Log4J Configuration
 
   See properties setup in /spring-rest/starter-project/src/main/resources/java/log4j.properties file.
   You can also set logger-level per package and/or class in the properties file.
 
-### Content Negotiation
+#### Content Negotiation
 
   Support is available for JSON & XML contents. These are checked in the following order:
   * path extension suffix to URL, e.g., http://localhost:8080/greeting.xml?name=partha
@@ -103,7 +103,7 @@ $ ./gradlew run
   * accept headers, e.g., application/json or application/xml
   * defaults to JSON
 
-### HTTP Request Logging
+#### HTTP Request Logging
 
   All HTTP requests are logged using Log4j logger. You can enable/disable this via the log4j.properties file.
 
@@ -112,7 +112,7 @@ $ ./gradlew run
   For Spring hibernate configuration, see /spring-rest/starter-project/src/main/resources/java/hibernate.cfg.xml
   file. It uses the thread session context. Some simple utilities are available as a part of the setup.
 
-### CRUD interfaces for Hibernate POJO Entities
+#### CRUD interfaces for Hibernate POJO Entities
 
   Simple CRUD operations are supported via the HibernatePojoEntity class. See the following files for usage details:
   * User.java - Hibernate POJO Entity Declaration
