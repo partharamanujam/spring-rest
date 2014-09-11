@@ -100,12 +100,24 @@ $ ./gradlew run
   Support is available for JSON & XML contents. These are checked in the following order:
   * path extension suffix to URL, e.g., http://localhost:8080/greeting.xml?name=partha
   * format URL parameter, e.g., http://localhost:8080/greeting.xml?name=partha&format=xml
-  * accept headers, e.g., application/json
+  * accept headers, e.g., application/json or application/xml
   * defaults to JSON
 
 ### HTTP Request Logging
 
   All HTTP requests are logged using Log4j logger. You can enable/disable this via the log4j.properties file.
+
+## Hibernate Setup
+
+  For Spring hibernate configuration, see /spring-rest/starter-project/src/main/resources/java/hibernate.cfg.xml
+  file. It uses the thread session context. Some simple utilities are available as a part of the setup.
+
+### CRUD interfaces for Hibernate POJO Entities
+
+  Simple CRUD operations are supported via the HibernatePojoEntity class. See the following files for usage details:
+  * User.java - Hibernate POJO Entity Declaration
+  * UserService.java - Basic CRUD interfaces using HibernatePojoEntity
+  * UserController.java - REST API interface to external world
 
 ## License
 
