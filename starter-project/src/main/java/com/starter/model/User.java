@@ -18,6 +18,24 @@ public class User {
 	private int age;
 	private String pass;
 
+	public void update(User user) {
+		if(user.uid != null) {
+			this.uid = user.uid;
+		}
+		if(user.fname != null) {
+			this.fname = user.fname;
+		}
+		if(user.lname != null) {
+			this.lname = user.lname;
+		}
+		if(user.age != 0) {
+			this.age = user.age;
+		}
+		if(user.pass != null) {
+			this.pass = user.pass;
+		}
+	}
+
 	@XmlElement
 	public String getUid() {
 		return uid;
