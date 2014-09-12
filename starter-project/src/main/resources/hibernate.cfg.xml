@@ -34,6 +34,7 @@
 
 		<!-- models -->
 		<mapping class="com.starter.model.User" />
+		<mapping class="com.starter.model.UserAuth" />
 
 	</session-factory>
 </hibernate-configuration>

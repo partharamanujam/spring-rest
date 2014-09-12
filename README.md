@@ -92,7 +92,7 @@ $ ./gradlew run
 
 #### Log4J Configuration
 
-  See properties setup in /spring-rest/starter-project/src/main/resources/java/log4j.properties file.
+  See properties setup in [log4j.properties](/starter-project/src/main/resources/java/log4j.properties) file.
   You can also set logger-level per package and/or class in the properties file.
 
 #### Content Negotiation
@@ -105,7 +105,14 @@ $ ./gradlew run
 
 #### HTTP Request Logging
 
-  All HTTP requests are logged using Log4j logger. You can enable/disable this via the log4j.properties file.
+  All HTTP requests are logged using Log4j logger. You can enable/disable this via the [log4j.properties](/starter-project/src/main/resources/java/log4j.properties) file.
+
+#### Global Settings
+
+  The supported build settings are available in [GlobalSettings.java](/starter-project/src/main/java/com/config/GlobalSettings.java) file. Some of the defaults are as follows:
+  * Authentication : true
+  * CSRF : false
+  * CSRF-headers : false
 
 ## Hibernate Setup
 
@@ -118,6 +125,13 @@ $ ./gradlew run
   * User.java - Hibernate POJO Entity Declaration
   * UserService.java - Basic CRUD interfaces using HibernatePojoEntity
   * UserController.java - REST API interface to external world
+
+## Authentication
+
+  You can login in from http://localhost:8080/login screen. Following are the default users
+  (passwords are same as user names) on the system created by the MySQL setup script:
+  * john
+  * jane
 
 ## License
 

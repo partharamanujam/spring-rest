@@ -9,35 +9,33 @@ import com.starter.utils.HibernatePojoEntity;
 public class UserService {
 	HibernatePojoEntity<User> entity = new HibernatePojoEntity<User>(User.class);
 
-	public User createUser(User user) {
-		user = entity.create(user);
-		if(user != null) {
+	private void hashUserPassword(User user) {
+		if (user != null) {
 			user.setPass("*****");
 		}
+	}
+
+	public User createUser(User user) {
+		user = entity.create(user);
+		hashUserPassword(user);
 		return user;
 	}
 
 	public User readUser(String id) {
 		User user = entity.read(id);
-		if(user != null) {
-			user.setPass("*****");
-		}
+		hashUserPassword(user);
 		return user;
 	}
 
 	public User updateUser(User user) {
 		user = entity.update(user);
-		if(user != null) {
-			user.setPass("*****");
-		}
+		hashUserPassword(user);
 		return user;
 	}
 
 	public User deleteUser(User user) {
 		user = entity.delete(user);
-		if(user != null) {
-			user.setPass("*****");
-		}
+		hashUserPassword(user);
 		return user;
 	}
 
