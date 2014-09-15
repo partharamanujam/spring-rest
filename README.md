@@ -119,7 +119,7 @@ $ ./gradlew run
 
 #### CRUD interfaces for Hibernate POJO Entities
 
-  Simple CRUD operations are supported via the [HibernatePojoEntity](starter-project/src/main/java/com/starter/utils/HibernatePojoEntity.java) class. CRUD operations can be performed on
+  Simple CRUD operations are supported via the [HibernatePojoEntity.java](starter-project/src/main/java/com/starter/utils/HibernatePojoEntity.java) class. CRUD operations can be performed on
   a user-entity on the following URL using the mentioned HTTP methods:
   * CREATE: POST http://localhost:8080/user
   * READ: GET http://localhost:8080/user/{uid}
@@ -141,6 +141,15 @@ $ ./gradlew run
   * super
   * john
   * jane
+
+#### Access Control
+
+  User-Rights are stored in the DB as pipe-separated strings. Simple permissions check is enabled by Spring security using [Expression Based Access Control](http://docs.spring.io/spring-security/site/docs/3.0.x/reference/el-access.html) via @PreAuthorize annotation. Following rights are supported:
+  * CREATE
+  * READ
+  * UPDATE
+  * DELETE
+  * PERMS (ability to update permissions)
 
 ## License
 

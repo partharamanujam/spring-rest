@@ -1,7 +1,7 @@
 package com.starter.controller;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,8 +18,9 @@ public class HomeController {
 	UserService userService;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String home(HttpServletRequest request, HttpServletResponse response) {
+	public String home(HttpServletRequest request, HttpSession session) {
 		User user = userService.readUser(request.getUserPrincipal().getName());
+		session.setAttribute("uid", user.getUid());
 		return "Welcome: " + user.getFname() + " " + user.getLname();
 	}
 
