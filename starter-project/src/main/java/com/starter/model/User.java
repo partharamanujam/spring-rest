@@ -1,5 +1,6 @@
 package com.starter.model;
 
+import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -12,29 +13,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class User {
 	@Id
+	@Column(updatable = false)
 	private String uid;
 	private String fname;
 	private String lname;
 	private int age;
 	private String pass;
-
-	public void update(User user) {
-		if(user.uid != null) {
-			this.uid = user.uid;
-		}
-		if(user.fname != null) {
-			this.fname = user.fname;
-		}
-		if(user.lname != null) {
-			this.lname = user.lname;
-		}
-		if(user.age != 0) {
-			this.age = user.age;
-		}
-		if(user.pass != null) {
-			this.pass = user.pass;
-		}
-	}
+	private String perms;
 
 	@XmlElement
 	public String getUid() {
@@ -79,5 +64,14 @@ public class User {
 
 	public void setPass(String pass) {
 		this.pass = pass;
+	}
+
+	@XmlElement
+	public String getPerms() {
+		return perms;
+	}
+
+	public void setPerms(String perms) {
+		this.perms = perms;
 	}
 }

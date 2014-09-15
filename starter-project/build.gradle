@@ -37,6 +37,7 @@ dependencies {
     compile("org.hibernate:hibernate-core:3.6.3.Final")
     compile("org.hibernate:hibernate-c3p0:3.6.3.Final")
     compile("javassist:javassist:3.12.1.GA")
+    compile("org.apache.commons:commons-lang3:3.0")
 }
 
 task wrapper(type: Wrapper) {

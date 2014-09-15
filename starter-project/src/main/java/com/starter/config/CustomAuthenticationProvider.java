@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -18,15 +19,19 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
 	@Override
 	public Authentication authenticate(Authentication authentication) {
-		String user = authentication.getName();
+		String uid = authentication.getName();
 		String pass = authentication.getCredentials().toString();
-		if (userAuthService.checkPass(user, pass)) {
-			logger.info("login success for: " + user);
-			List<GrantedAuthority> grantedAuths = new ArrayList<>(); // TODO: update for RBAC
-			return new UsernamePasswordAuthenticationToken(user, pass, grantedAuths);
+		if (userAuthService.checkPass(uid, pass)) {
+			logger.info("login success for: " + uid);
+			String[] permissions = userAuthService.getPermissions(uid);
+			List<GrantedAuthority> grantedAuths = new ArrayList<>();
+			for (int idx = 0; idx < permissions.length; idx++) {
+				grantedAuths.add(new SimpleGrantedAuthority(permissions[idx]));
+			}
+			return new UsernamePasswordAuthenticationToken(uid, pass, grantedAuths);
 		} else {
-			logger.error("login failed for: " + user);
-			throw new AuthenticationServiceException("authetication failed: " + user);
+			logger.error("login failed for: " + uid);
+			throw new AuthenticationServiceException("authetication failed: " + uid);
 		}
 	}
 

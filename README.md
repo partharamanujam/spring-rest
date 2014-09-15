@@ -119,15 +119,26 @@ $ ./gradlew run
 
 #### CRUD interfaces for Hibernate POJO Entities
 
-  Simple CRUD operations are supported via the HibernatePojoEntity class. See the following files for usage details:
-  * User.java - Hibernate POJO Entity Declaration
-  * UserService.java - Basic CRUD interfaces using HibernatePojoEntity
-  * UserController.java - REST API interface to external world
+  Simple CRUD operations are supported via the [HibernatePojoEntity](starter-project/src/main/java/com/starter/utils/HibernatePojoEntity.java) class. CRUD operations can be performed on
+  a user-entity on the following URL using the mentioned HTTP methods:
+  * CREATE: POST http://localhost:8080/user
+  * READ: GET http://localhost:8080/user/{uid}
+  * UPDATE: PUT http://localhost:8080/user
+  * DELETE: DELETE http://localhost:8080/user/{uid}
 
-## Authentication
+  See the following files for usage details:
+  * [User.java](starter-project/src/main/java/com/starter/model/User.java) - Hibernate POJO Entity Declaration
+  * [UserService.java](starter-project/src/main/java/com/starter/service/UserService.java) - CRUD interfaces using HibernatePojoEntity
+  * [UserController.java](starter-project/src/main/java/com/starter/controller/UserController.java) - REST API interface
 
-  You can login in from http://localhost:8080/login screen. Following are the default users
-  (passwords are same as user names) on the system created by the MySQL setup script:
+## Security
+
+#### Authetication
+
+  Custom-authentication setup is provided by [CustomAuthenticationProvider.java](starter-project/src/main/java/com/starter/config/CustomAuthenticationProvider.java) class. You can login in from http://localhost:8080/login screen. Following are the default users (passwords are same as user names) on the system created by MySQL
+  setup script [mysqldb.sql](utils/mysqldb.sql):
+  * admin
+  * super
   * john
   * jane
 

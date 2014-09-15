@@ -1,6 +1,5 @@
 package com.starter.controller;
 
-import org.hibernate.QueryException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,49 +12,32 @@ import com.starter.model.User;
 import com.starter.service.UserService;
 
 @RestController
-@RequestMapping(value = "/user/{uid}")
+@RequestMapping(value = "/user")
 public class UserController {
 	@Autowired
 	UserService userService;
 
 	// CREATE
 	@RequestMapping(method = RequestMethod.POST)
-	public @ResponseBody User createUser(@PathVariable String uid, @RequestBody User user) {
-		user.setUid(uid);
+	public @ResponseBody User createUser(@RequestBody User user) {
 		return userService.createUser(user);
 	}
 
 	// READ
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value = "{uid}", method = RequestMethod.GET)
 	public @ResponseBody User getUser(@PathVariable String uid) {
-		User user = userService.readUser(uid);
-		if(user != null) {
-			return user;
-		} else {
-			throw new QueryException("user not found");
-		}
+		return userService.readUser(uid);
 	}
 
 	// UPDATE
 	@RequestMapping(method = RequestMethod.PUT)
-	public @ResponseBody User updateUser(@PathVariable String uid, @RequestBody User user) {
-		User updateUser = getUser(uid);
-		if (updateUser != null) {
-			updateUser.update(user);
-			return userService.updateUser(updateUser);
-		} else {
-			throw new QueryException("user not found");
-		}
+	public @ResponseBody User updateUser(@RequestBody User user) {
+		return userService.updateUser(user);
 	}
 
 	// DELETE
-	@RequestMapping(method = RequestMethod.DELETE)
+	@RequestMapping(value = "{uid}", method = RequestMethod.DELETE)
 	public @ResponseBody User deleteUser(@PathVariable String uid) {
-		User deleteUser = getUser(uid);
-		if(deleteUser != null) {
-			return userService.deleteUser(deleteUser);
-		} else {
-			throw new QueryException("user not found");
-		}
+		return userService.deleteUser(uid);
 	}
 }
