@@ -21,7 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		AuthenticationProvider authenticationProvider = new CustomAuthenticationProvider();
 		auth.authenticationProvider(authenticationProvider);
 	}
-
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http = http.addFilterBefore(new RequestLoggingFilter(), ChannelProcessingFilter.class);
@@ -41,7 +41,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.authorizeRequests()
 					.anyRequest().authenticated()
 					.and()
-				.formLogin();
+				.formLogin()
+					.successHandler(new CustomAuthenticationSuccessHandler())
+					.and()
+				.logout()
+					.logoutSuccessHandler(new CustomLogoutSuccessHandler());
 		} else {
 			http
 				.csrf().disable()

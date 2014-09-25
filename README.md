@@ -21,6 +21,8 @@ $ ./gradlew run
   * [Spring Security](http://docs.spring.io/autorepo/docs/spring-security/3.2.4.RELEASE/reference/htmlsingle)
   * [CSRF Headers](http://docs.spring.io/autorepo/docs/spring-security/3.2.4.RELEASE/reference/htmlsingle/#csrf-using) for AJAX
   * [Tomcat Deployment](http://tomcat.apache.org/) via war-file
+  * Supports HTTP Requests logging
+  * Supports Audit-Logging
   * Supports cmd-line builds, and multiple IDEs (STS/Eclipse, IDEA, etc.)
   * Supports content-negotiation for both JSON & XML
 
@@ -103,7 +105,11 @@ $ ./gradlew run
 
 #### HTTP Request Logging
 
-  All HTTP requests are logged using Log4j logger. You can enable/disable this via the [log4j.properties](starter-project/src/main/resources/log4j.properties) file.
+  All HTTP requests are logged using Log4j logger. You can configure this via the [log4j.properties](starter-project/src/main/resources/log4j.properties) file.
+
+#### Audit Logging
+
+  Specific requests that need to be logged for audit purposes are logged using Log4j logger to a specified file. You can configure this via the [log4j.properties](starter-project/src/main/resources/log4j.properties) file.
 
 #### Global Settings
 

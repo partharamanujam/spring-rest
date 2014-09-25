@@ -2,6 +2,7 @@ package com.starter.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.starter.model.User;
 import com.starter.service.UserService;
+import com.starter.utils.AuditLogger;
 
 @RestController
 @RequestMapping(value = "/user")
@@ -23,7 +25,8 @@ public class UserController {
 	// CREATE
 	@RequestMapping(method = RequestMethod.POST)
 	@PreAuthorize("hasRole('CREATE')")
-	public @ResponseBody User createUser(@RequestBody User user) {
+	public @ResponseBody User createUser(@RequestBody User user, HttpServletRequest request) {
+		AuditLogger.getInstance().logRequest(request, user);
 		return userService.createUser(user);
 	}
 
@@ -37,7 +40,8 @@ public class UserController {
 	// UPDATE
 	@RequestMapping(method = RequestMethod.PUT)
 	@PreAuthorize("hasRole('UPDATE')")
-	public @ResponseBody User updateUser(@RequestBody User user) {
+	public @ResponseBody User updateUser(@RequestBody User user, HttpServletRequest request) {
+		AuditLogger.getInstance().logRequest(request, user);
 		return userService.updateUser(user);
 	}
 
@@ -48,6 +52,7 @@ public class UserController {
 		if (request.getUserPrincipal().getName().compareTo(uid) == 0) {
 			throw new UnsupportedOperationException("cannot delete self");
 		} else {
+			AuditLogger.getInstance().logRequest(request, uid);
 			return userService.deleteUser(uid);
 		}
 	}
@@ -60,6 +65,7 @@ public class UserController {
 		if (request.getUserPrincipal().getName().compareTo(uid) == 0) {
 			throw new UnsupportedOperationException("cannot add permissions to self");
 		} else {
+			AuditLogger.getInstance().logRequest(request, uid + " = " + StringUtils.join(permissions, "|"));
 			return userService.updatePermissions(uid, permissions);
 		}
 	}
